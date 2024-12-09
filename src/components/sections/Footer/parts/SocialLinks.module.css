@@ -1,0 +1,38 @@
+@import '@src/styles/media-queries.css';
+
+.SocialLinks {
+  --social-links-action-padding: 6px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  justify-items: center;
+  gap: 16px;
+
+  @media (--min-tablet) {
+    justify-content: end;
+    justify-items: end;
+  }
+}
+
+.SocialLinkItem {
+}
+
+.SocialLinkAction {
+  display: block;
+  padding: var(--social-links-action-padding);
+  border-radius: var(--radius);
+  background-color: transparent;
+  /* `focus-ring` + `transition` is inherited by `button-basic` */
+
+  &:hover {
+    color: var(--color-primary);
+    background-color: var(--shade-dark-4);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.SocialIconWrapper {
+}

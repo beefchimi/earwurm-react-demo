@@ -1,0 +1,10 @@
+.ActionsDemo {
+}
+
+.Actions {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+}

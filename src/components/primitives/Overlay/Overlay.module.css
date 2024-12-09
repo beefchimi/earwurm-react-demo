@@ -1,0 +1,29 @@
+.Overlay {
+  z-index: 999;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: var(--shade-dark-80);
+
+  /* Relies on `react-transition-state` hook. */
+  opacity: 1;
+  transition: opacity var(--speed-slow) var(--ease);
+}
+
+.entered {
+  opacity: 1;
+}
+
+.preEnter,
+.exiting {
+  opacity: 0;
+}
+
+.exited,
+.unmounted {
+  /* Since we unMount when `!open`, this isn't actually required. */
+  display: none;
+}

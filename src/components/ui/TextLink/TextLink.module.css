@@ -1,0 +1,54 @@
+.TextLink {
+  --text-link-bg-opacity: 0;
+  color: currentColor;
+  text-decoration-color: currentColor;
+
+  &:disabled,
+  &[data-link-disabled] {
+    opacity: 0.8;
+  }
+
+  &[data-link-pressed] {
+    /* Consider adding unique styles for this state. */
+  }
+
+  &:focus-visible,
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  &:active {
+    color: var(--color-primary-dark);
+  }
+}
+
+button.TextLink {
+  position: relative;
+  border-radius: var(--radius-tight);
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -0.0625em;
+    bottom: -0.25em;
+    left: -0.25em;
+    right: -0.25em;
+    border-radius: var(--radius-tight);
+    background-color: var(--shade-dark-4);
+    opacity: var(--text-link-bg-opacity);
+    transition: opacity var(--speed) var(--ease);
+  }
+
+  &:focus-visible {
+    color: var(--color-primary);
+  }
+
+  &:hover {
+    --text-link-bg-opacity: 1;
+  }
+
+  &:active {
+    --text-link-bg-opacity: 0.8;
+  }
+}

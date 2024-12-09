@@ -1,0 +1,17 @@
+.HomePage {
+  display: grid;
+  gap: 20px;
+}
+
+.Card {
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: var(--radius);
+  color: var(--color-text);
+  background-color: var(--shade-light-20);
+}
+
+.invert {
+  color: var(--color-bg);
+  background-color: var(--color-text);
+}

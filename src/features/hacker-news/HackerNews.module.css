@@ -1,0 +1,27 @@
+.HackerNews {
+}
+
+.List {
+  display: grid;
+  gap: 16px;
+}
+
+.Item {
+  display: grid;
+  justify-content: center;
+  gap: 6px;
+  font-size: 20px;
+
+  > a {
+    font-weight: 700;
+  }
+}
+
+.Byline {
+}
+
+.Score {
+}
+
+.Author {
+}

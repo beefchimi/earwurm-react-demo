@@ -1,0 +1,30 @@
+/*
+  TODO: At the moment, this file can only be used with `lightningcss`.
+  Browsers do not set support the `@custom-media` directive.
+  https://caniuse.com/?search=custom-media
+
+  Alternatively, we could use `@container` queries, as shown here:
+  https://www.stefanjudis.com/notes/the-death-of-custom-media-queries/
+*/
+
+/*
+  TODO: These queries may not transform correctly.
+  https://github.com/parcel-bundler/lightningcss/issues/817
+*/
+@custom-media --before-phablet (width < 540px);
+@custom-media --before-tablet (width < 768px);
+@custom-media --before-classic (width < 960px);
+@custom-media --before-hd (width < 1080px);
+@custom-media --before-desktop (width < 1280px);
+@custom-media --before-widescreen (width < 1440px);
+@custom-media --before-ultrawide (width < 1920px);
+
+@custom-media --min-phablet (width >= 540px);
+@custom-media --min-tablet (width >= 768px);
+@custom-media --min-classic (width >= 960px);
+@custom-media --min-hd (width >= 1080px);
+@custom-media --min-desktop (width >= 1280px);
+@custom-media --min-widescreen (width >= 1440px);
+@custom-media --min-ultrawide (width >= 1920px);
+
+@custom-media --max-phone-height (height <= 480px);

@@ -1,0 +1,27 @@
+/*
+  This primitive applies only the most basic styling for each
+  element type. It is expected that consumers of this primitive
+  will additionally leverage the `button-basic` and `link-basic`
+  utility classes to provide a more thorough style foundation.
+*/
+
+.PrimitiveLink {
+  display: inline-block;
+
+  &[data-link-disabled] {
+    /* mixin: .interaction-disable */
+    pointer-events: none;
+    touch-action: none;
+    user-select: none;
+  }
+}
+
+.PrimitiveButton {
+  &:disabled,
+  &[data-button-static] {
+    /* mixin: .interaction-disable */
+    pointer-events: none;
+    touch-action: none;
+    user-select: none;
+  }
+}

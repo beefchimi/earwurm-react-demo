@@ -1,0 +1,12 @@
+.Spinner {
+  font-size: 16px;
+}
+
+.Icon {
+  width: 1em;
+  height: 1em;
+  border: 0.125em solid color-mix(in srgb, currentColor, transparent 60%);
+  border-top: 0.125em solid currentColor;
+  border-radius: 50%;
+  animation: var(--motion-spin) var(--speed-slow) var(--ease) infinite both;
+}

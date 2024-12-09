@@ -1,0 +1,25 @@
+@import '@src/styles/media-queries.css';
+
+.Header {
+}
+
+.Layout {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+
+  @media (--min-tablet) {
+    grid-auto-flow: unset;
+    align-content: start;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media (--min-desktop) {
+    padding: 40px;
+  }
+}

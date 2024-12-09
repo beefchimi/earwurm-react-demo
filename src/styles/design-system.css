@@ -1,0 +1,154 @@
+/* --- Colours --- */
+:root {
+  --color-text-light: #1c5f54;
+  --color-text: #0f332d;
+  --color-text-dark: #09201c;
+
+  --color-bg-light: #f6f8f2;
+  --color-bg: #e1e8d4;
+  --color-bg-dark: #d1dbbd;
+
+  --color-primary-light: #397f63;
+  --color-primary: #2c634d;
+  --color-primary-dark: #204637;
+
+  --color-secondary-light: #aecea1;
+  --color-secondary: #8eba7d;
+  --color-secondary-dark: #80b26c;
+
+  --color-accent-light: #56b37a;
+  --color-accent: #41905f;
+  --color-accent-dark: #397f54;
+
+  /* Persistent Colors */
+  --color-danger-light: #e34f6c;
+  --color-danger: #d62246;
+  --color-danger-dark: #c21e3f;
+
+  /* Shades */
+  --shade-light-4: rgb(255, 255, 255, 0.04);
+  --shade-light-20: rgb(255, 255, 255, 0.2);
+  --shade-light-80: rgb(255, 255, 255, 0.8);
+
+  --shade-dark-4: rgb(0, 0, 0, 0.04);
+  --shade-dark-20: rgb(0, 0, 0, 0.2);
+  --shade-dark-80: rgb(0, 0, 0, 0.8);
+
+  /* UI */
+  --selection-primary: var(--color-bg);
+  --selection-secondary: var(--color-text);
+}
+
+/* --- Sizing --- */
+:root {
+  --breakpoint-x-mobile: 320px;
+  --breakpoint-x-phablet: 540px;
+  --breakpoint-x-tablet: 768px;
+  --breakpoint-x-classic: 960px;
+  --breakpoint-x-hd: 1080px;
+  --breakpoint-x-desktop: 1280px;
+  --breakpoint-x-widescreen: 1440px;
+  --breakpoint-x-ultrawide: 1920px;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-100: 100px;
+
+  --radius-tight: 4px;
+  --radius: 6px;
+  --radius-loose: 12px;
+  --radius-full: 999px;
+}
+
+/* --- Animation --- */
+:root {
+  --speed-fast: 120ms;
+  --speed: 240ms;
+  --speed-slow: 480ms;
+  --speed-slower: 960ms;
+
+  --ease: cubic-bezier(0.64, 0, 0.32, 1);
+  --ease-gentle: cubic-bezier(0.2, 0.1, 0.8, 0.9);
+  --ease-excite: cubic-bezier(0.18, 0.66, 0.6, 1.22);
+  --ease-bungie: cubic-bezier(0.32, 1.46, 0.54, 1.28);
+  --ease-anticipate: cubic-bezier(0.38, -0.4, 0.84, 0.44);
+  --ease-spring: linear(
+    0,
+    0.009,
+    0.035 2.1%,
+    0.141,
+    0.281 6.7%,
+    0.723 12.9%,
+    0.938 16.7%,
+    1.017,
+    1.077,
+    1.121,
+    1.149 24.3%,
+    1.159,
+    1.163,
+    1.161,
+    1.154 29.9%,
+    1.129 32.8%,
+    1.051 39.6%,
+    1.017 43.1%,
+    0.991,
+    0.977 51%,
+    0.974 53.8%,
+    0.975 57.1%,
+    0.997 69.8%,
+    1.003 76.9%,
+    1.004 83.8%,
+    1
+  );
+}
+
+/* --- Typography & Components --- */
+:root {
+  --font-body: 'DM Sans', var(--font-stack-sans-serif);
+  --font-title: 'Playfair Display', var(--font-stack-serif);
+
+  --focus-ring-color: var(--color-primary);
+  --focus-ring-size: 2px;
+
+  --icon-size: 20px;
+}
+
+/* --- Dark Mode --- */
+
+html[data-theme='dark'] {
+  --color-text-light: #fff;
+  --color-text: #e7f8e2;
+  --color-text-dark: #d6f3ce;
+
+  --color-bg-light: #213131;
+  --color-bg: #101818;
+  --color-bg-dark: #080c0c;
+
+  --color-primary-light: #8bf8a1;
+  --color-primary: #60f67e;
+  --color-primary-dark: #3ef463;
+
+  --color-secondary-light: #c0edd2;
+  --color-secondary: #98e1b7;
+  --color-secondary-dark: #81daa6;
+
+  --color-accent-light: #eef47c;
+  --color-accent: #e9f056;
+  --color-accent-dark: #e4ed31;
+
+  /* Shades (inverted) */
+  --shade-light-4: rgb(0, 0, 0, 0.04);
+  --shade-light-20: rgb(0, 0, 0, 0.2);
+  --shade-light-80: rgb(0, 0, 0, 0.8);
+
+  --shade-dark-4: rgb(255, 255, 255, 0.04);
+  --shade-dark-20: rgb(255, 255, 255, 0.2);
+  --shade-dark-80: rgb(255, 255, 255, 0.8);
+}

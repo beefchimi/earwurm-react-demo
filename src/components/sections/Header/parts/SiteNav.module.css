@@ -1,0 +1,69 @@
+.SiteNav {
+  --site-nav-link-padding: 6px;
+  position: relative;
+}
+
+.List {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.mobileList {
+  z-index: 100;
+  position: absolute;
+  top: 40px;
+  right: -4px;
+  display: none;
+  grid-auto-flow: unset;
+  justify-content: right;
+  justify-items: right;
+  padding: 8px;
+  border-radius: var(--radius);
+  background-color: var(--shade-light-80);
+}
+
+.showMobileMenu {
+  display: block;
+}
+
+.Item {
+  font-size: 16px;
+}
+
+.Link {
+  --text-link-bg-opacity: 0;
+
+  display: block;
+  padding: var(--site-nav-link-padding);
+  border-radius: var(--radius);
+  background-color: transparent;
+  white-space: nowrap;
+  /* `focus-ring` + `transition` is inherited by `button-basic` */
+
+  &:disabled,
+  &[data-link-disabled] {
+    opacity: 0.8;
+  }
+
+  &[data-link-pressed] {
+    /* Consider adding unique styles for this state. */
+  }
+
+  &:focus-visible,
+  &:hover {
+    color: var(--color-accent);
+    background-color: var(--shade-dark-4);
+  }
+
+  &:active {
+    color: var(--color-accent-dark);
+    background-color: transparent;
+  }
+}
+
+.active {
+  color: var(--color-accent);
+  background-color: var(--shade-dark-4);
+}

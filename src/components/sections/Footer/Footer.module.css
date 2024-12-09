@@ -1,0 +1,31 @@
+@import '@src/styles/media-queries.css';
+
+.Footer {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+
+  @media (--min-desktop) {
+    padding: 40px;
+  }
+}
+
+.Layout {
+  display: grid;
+  gap: 64px;
+  margin: 0 auto;
+  max-width: var(--breakpoint-x-desktop);
+
+  @media (--min-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+}
+
+.LegalText {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}

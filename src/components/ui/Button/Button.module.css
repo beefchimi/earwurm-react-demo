@@ -1,0 +1,182 @@
+.Button {
+  --button-padding-x: 12px;
+  --button-padding-y: 8px;
+  --button-font-size: 14px;
+  --button-color-text: var(--color-text);
+  --button-color-bg: var(--color-secondary);
+  --button-label-opacity: 1;
+  --button-spinner-size: 24px;
+
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  color: var(--button-color-text);
+  background-color: var(--button-color-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  &:disabled {
+    opacity: 0.8;
+  }
+
+  &[aria-pressed] {
+    box-shadow: inset 0 0 0 2px var(--button-color-text);
+  }
+
+  &:focus-visible {
+    /* Inherited from `button-basic` */
+  }
+
+  &:hover:not(:active) {
+    --button-color-bg: var(--color-secondary-dark);
+  }
+}
+
+.loading {
+  /*
+    TODO: We may want to counter the `disabled > opacity` and
+    keep `opacity` at `1` while `loading`.
+  */
+  --button-label-opacity: 0;
+}
+
+/* --- Variants --- */
+
+.variantPrimary {
+  --button-color-text: var(--color-bg);
+  --button-color-bg: var(--color-primary);
+
+  &:hover:not(:active) {
+    --button-color-bg: var(--color-primary-dark);
+  }
+}
+
+.variantSecondary {
+  /* Is the default */
+}
+
+html[data-theme='dark'] {
+  & .variantSecondary:not(.outline) {
+    --button-color-text: var(--color-bg);
+  }
+}
+
+.variantTertiary {
+  --button-color-text: var(--color-bg);
+  --button-color-bg: var(--color-accent);
+
+  &:hover:not(:active) {
+    --button-color-bg: var(--color-accent-dark);
+  }
+}
+
+.variantForeground {
+  --button-color-bg: var(--color-bg);
+
+  &:hover:not(:active) {
+    --button-color-bg: var(--color-bg-dark);
+  }
+}
+
+.variantBackground {
+  --button-color-text: var(--color-bg);
+  --button-color-bg: var(--color-text);
+
+  &:hover:not(:active) {
+    --button-color-bg: var(--color-text-dark);
+  }
+}
+
+.variantDanger {
+  --button-color-bg: var(--color-danger);
+
+  &:hover:not(:active) {
+    --button-color-bg: var(--color-danger-dark);
+  }
+}
+
+html[data-theme='light'] {
+  & .variantDanger:not(.outline) {
+    --button-color-text: var(--color-bg);
+  }
+}
+
+/* This selector needs to come AFTER the `.variant*` classes */
+.outline {
+  --button-color-text: var(--button-color-bg);
+  border-color: var(--button-color-text);
+  background-color: transparent;
+}
+
+/* --- Sizes --- */
+
+.sizeSmall {
+  /* Is the default */
+}
+
+.sizeMedium {
+  --button-padding-x: 16px;
+  --button-padding-y: 12px;
+  --button-font-size: 18px;
+  --button-spinner-size: 32px;
+}
+
+.sizeLarge {
+  --button-padding-x: 20px;
+  --button-padding-y: 16px;
+  --button-font-size: 24px;
+  --button-spinner-size: 38px;
+}
+
+/* --- Label --- */
+
+.LabelWrapper {
+  z-index: 2;
+  position: relative;
+  opacity: var(--button-label-opacity);
+  transition: opacity var(--speed) var(--ease);
+}
+
+.Label {
+  /* Not using `text-box-trim` for this font. */
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* --- Loading Spinner --- */
+
+.SpinnerWrapper {
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  font-size: var(--button-spinner-size);
+  color: var(--button-color-text);
+
+  /* Relies on `react-transition-state` hook. */
+  opacity: 1;
+  transition: opacity var(--speed) var(--ease);
+}
+
+.entered {
+  opacity: 1;
+}
+
+.preEnter,
+.exiting {
+  opacity: 0;
+}
+
+.exited,
+.unmounted {
+  /* Since we unMount when `!loading`, this isn't actually required. */
+  display: none;
+}

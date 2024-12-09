@@ -1,0 +1,76 @@
+{
+  "name": "earwurm-react-demo",
+  "version": "0.0.1",
+  "description": "Exploration of using Earwurm in React",
+  "author": "Curtis Dulmage",
+  "license": "UNLICENSED",
+  "keywords": [
+    "Vite",
+    "React",
+    "TypeScript",
+    "Earwurm"
+  ],
+  "homepage": "https://github.com/beefchimi/earwurm-react-demo",
+  "bugs": {
+    "url": "https://github.com/beefchimi/earwurm-react-demo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beefchimi/earwurm-react-demo.git"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.11.0",
+    "npm": ">=10.9.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules/.cache && rm -rf node_modules/.vite",
+    "nuke": "npm run clean && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force",
+    "router:gen": "tsr generate",
+    "start": "vite --port=3001",
+    "preview": "vite preview --host",
+    "build": "npm run clean && tsc -b && vite build",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "echo 'Prettier has not been configured for this app.'",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --pool forks",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.87.0",
+    "@tanstack/react-store": "^0.6.1",
+    "beeftools": "^0.1.8",
+    "earwurm": "^0.11.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-transition-state": "^2.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@tanstack/router-cli": "^1.86.0",
+    "@tanstack/eslint-plugin-router": "^1.85.3",
+    "@tanstack/router-plugin": "^1.86.0",
+    "@tanstack/router-devtools": "^1.87.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.13",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "eslint": "^9.16.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.13.0",
+    "jsdom": "^25.0.1",
+    "lightningcss": "^1.28.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8",
+    "vite-plugin-svgr": "^4.3.0"
+  }
+}

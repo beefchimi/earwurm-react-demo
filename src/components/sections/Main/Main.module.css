@@ -1,0 +1,14 @@
+@import '@src/styles/media-queries.css';
+
+.Main {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+
+  @media (--min-desktop) {
+    padding: 40px;
+  }
+}

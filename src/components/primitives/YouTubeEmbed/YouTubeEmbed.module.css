@@ -1,0 +1,18 @@
+@import '@src/styles/media-queries.css';
+
+.YouTubeEmbed {
+  padding: 20px;
+  width: 100%;
+  max-width: var(--breakpoint-x-widescreen);
+
+  @media (--min-hd) {
+    padding: 32px;
+  }
+
+  > iframe {
+    /* `aspect-ratio` should be dynamic. */
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background-color: var(--shade-dark-80);
+  }
+}

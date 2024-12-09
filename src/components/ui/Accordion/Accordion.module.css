@@ -1,0 +1,117 @@
+@import '@src/styles/media-queries.css';
+
+.Accordion {
+  --accordion-title-size: 20px;
+  --accordion-icon-rotate: 0deg;
+  --accordion-icon-opacity: 1;
+  --accordion-interior-opacity: 1;
+  --accordion-interior-delay: var(--speed-fast);
+
+  /*
+    Undefined variables to be leveraged by a parent component.
+    --accordion-action-padding-x: 0;
+    --accordion-action-padding-y: 0;
+  */
+
+  display: grid;
+
+  @media (--min-tablet) {
+    --accordion-title-size: 24px;
+  }
+}
+
+.smallTitle {
+  --accordion-title-size: 16px;
+
+  @media (--min-tablet) {
+    --accordion-title-size: 18px;
+  }
+}
+
+.Action {
+  /* TODO: Can this be influenced by `<Section />` them? */
+  --focus-ring-color: currentColor;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin: 0 calc(var(--accordion-action-padding-x, 0) * -1);
+  padding: var(--accordion-action-padding-y, 0)
+    var(--accordion-action-padding-x, 0);
+  border-radius: var(--radius);
+  background-color: transparent;
+  /* `focus-ring` + `transition` is inherited by `button-basic` */
+  outline-offset: 0;
+
+  &[aria-expanded='true'] {
+    --accordion-icon-rotate: 90deg;
+    --accordion-icon-opacity: 0;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+  }
+
+  &:hover:not(:active) {
+    background-color: var(--shade-dark-4);
+  }
+}
+
+.Title {
+  font-family: var(--font-title);
+  font-size: var(--accordion-title-size);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.IconWrapper {
+  --icon-size: 16px;
+
+  > svg {
+    rotate: var(--accordion-icon-rotate);
+    transition: rotate var(--speed) var(--ease);
+  }
+
+  > svg path[data-svg='horizontal'] {
+    opacity: var(--accordion-icon-opacity);
+    transition: opacity var(--speed) var(--ease);
+  }
+}
+
+.Body {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--speed) var(--ease);
+
+  &[hidden] {
+    --accordion-interior-opacity: 0;
+    --accordion-interior-delay: 0ms;
+
+    grid-template-rows: 0fr;
+    /* Reset override: Keep visible so we can animate. */
+    display: grid;
+  }
+}
+
+.Interior {
+  opacity: var(--accordion-interior-opacity);
+  overflow: hidden;
+  transition: opacity var(--speed) var(--accordion-interior-delay) var(--ease);
+}
+
+/* --- Sub-components --- */
+
+.AccordionContent {
+  display: grid;
+  gap: 10px;
+  padding-top: var(--accordion-action-padding-y);
+  padding-bottom: calc(var(--accordion-action-padding-y) * 2);
+}
+
+.AccordionText {
+  /* font-family: var(--font-body); */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}

@@ -1,0 +1,72 @@
+.MemoryGame {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+.Error {
+}
+
+.Stats {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.StatItem {
+  > p {
+    font-size: 16px;
+  }
+
+  > p strong {
+    font-weight: 700;
+  }
+}
+
+/* --- Card List --- */
+
+.List {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.Card {
+  aspect-ratio: 1 / 1;
+
+  /*
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+  */
+}
+
+.flipping {
+  box-shadow: 0 0 0 4px blue;
+}
+
+.flipped {
+  box-shadow: 0 0 0 4px green;
+}
+
+.Action {
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+  }
+}
+
+.Image {
+}
+
+.Placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+}

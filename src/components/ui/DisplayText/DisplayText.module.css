@@ -1,0 +1,105 @@
+@import '@src/styles/media-queries.css';
+
+.DisplayText {
+  font-family: var(--font-title);
+  font-size: var(--display-text-size, 16px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: currentColor;
+}
+
+.h1 {
+  --display-text-size: 32px;
+
+  @media (--min-phablet) {
+    --display-text-size: 36px;
+  }
+
+  @media (--min-tablet) {
+    --display-text-size: 48px;
+  }
+
+  @media (--min-desktop) {
+    --display-text-size: 64px;
+  }
+}
+
+.h2 {
+  --display-text-size: 28px;
+
+  @media (--min-phablet) {
+    --display-text-size: 32px;
+  }
+
+  @media (--min-tablet) {
+    --display-text-size: 36px;
+  }
+
+  @media (--min-desktop) {
+    --display-text-size: 48px;
+  }
+}
+
+.h3 {
+  --display-text-size: 24px;
+
+  @media (--min-phablet) {
+    --display-text-size: 28px;
+  }
+
+  @media (--min-tablet) {
+    --display-text-size: 32px;
+  }
+
+  @media (--min-desktop) {
+    --display-text-size: 36px;
+  }
+}
+
+.h4 {
+  --display-text-size: 20px;
+
+  @media (--min-phablet) {
+    --display-text-size: 24px;
+  }
+
+  @media (--min-tablet) {
+    --display-text-size: 28px;
+  }
+
+  @media (--min-desktop) {
+    --display-text-size: 32px;
+  }
+}
+
+.h5 {
+  --display-text-size: 16px;
+
+  @media (--min-phablet) {
+    --display-text-size: 20px;
+  }
+
+  @media (--min-tablet) {
+    --display-text-size: 24px;
+  }
+
+  @media (--min-desktop) {
+    --display-text-size: 28px;
+  }
+}
+
+.h6 {
+  --display-text-size: 14px;
+
+  @media (--min-phablet) {
+    --display-text-size: 16px;
+  }
+
+  @media (--min-tablet) {
+    --display-text-size: 20px;
+  }
+
+  @media (--min-desktop) {
+    --display-text-size: 24px;
+  }
+}

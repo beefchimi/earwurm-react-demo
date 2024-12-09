@@ -1,0 +1,165 @@
+/* --- Interaction --- */
+
+.focus-ring-positioned {
+  position: relative;
+
+  &::before {
+    content: '';
+    z-index: 1;
+    display: block;
+    position: absolute;
+    inset: calc(var(--focus-ring-size) * -1);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 0 var(--focus-ring-size) var(--focus-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--speed) var(--ease);
+    /* mixin: .interaction-disable */
+    pointer-events: none;
+    touch-action: none;
+    user-select: none;
+  }
+
+  &:focus-visible::before {
+    opacity: 1;
+  }
+}
+
+.interaction-disable {
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.interaction-enable {
+  pointer-events: unset;
+  touch-action: unset;
+  user-select: unset;
+}
+
+/* --- Media --- */
+
+.media-cover {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+video.media-cover:fullscreen {
+  object-fit: contain;
+}
+
+.icon-wrapper {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: var(--icon-size);
+  height: var(--icon-size);
+
+  > svg {
+    /* Identical to the `.svg-base` class */
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: currentColor;
+  }
+}
+
+a.icon-wrapper {
+  display: block;
+}
+
+.svg-base {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: currentColor;
+}
+
+/* --- Typography --- */
+
+.line-clamp {
+  @supports (-webkit-line-clamp: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.truncate-height-fix {
+  margin-bottom: 0;
+  padding-bottom: 0.14em;
+}
+
+.truncate-height-fix-nudge {
+  margin-bottom: -0.14em;
+  padding-bottom: 0.14em;
+}
+
+.text-block {
+  display: block;
+}
+
+.text-box-trim {
+  /* A rough approximation of the future `text-box-trim` property. */
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: -0.14em;
+    /* mixin: .interaction-disable */
+    pointer-events: none;
+    touch-action: none;
+    user-select: none;
+  }
+}
+
+/* --- Layout --- */
+
+.flex-fix-width {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.flex-fix-height {
+  min-height: 0;
+  max-height: 100%;
+}
+
+.position-cover {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.visible-show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.visible-hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+}

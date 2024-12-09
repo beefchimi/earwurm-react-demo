@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>TODO: CUSTOM TITLE</title>
+
+    <!-- SEO meta -->
+    <meta name="description" content="TODO: CUSTOM DESCRIPTION" />
+    <meta name="keywords" content="TODO:, CUSTOM, KEYWORDS" />
+
+    <!--
+      Favicons:
+      https://vite-pwa-org.netlify.app/assets-generator
+      https://realfavicongenerator.net/
+    -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TODO: website.com" />
+    <meta property="og:title" content="TODO: TITLE" />
+    <meta property="og:description" content="TODO: DESCRIPTION" />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content="TODO: https://website.com/" />
+
+    <!-- Twitter meta -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="TODO: website.com" />
+    <meta property="twitter:url" content="TODO: https://website.com/" />
+    <meta property="twitter:site" content="TODO: @handle" />
+    <meta property="twitter:account_id" content="TODO: 12345678" />
+    <meta property="twitter:title" content="TODO: TITLE" />
+    <meta property="twitter:description" content="TODO: DESCRIPTION" />
+    <meta property="twitter:image" content="/social.png" />
+
+    <!-- Google Fonts: Playfair Display + DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <!-- TODO: Copied from Astro...
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${G_ID}`}></script>
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+
+        if (window.location.hostname !== 'localhost') {
+          gtag('js', new Date());
+          gtag('config', G_ID);
+        }
+      </script>
+    -->
+  </head>
+
+  <body>
+    <div id="ReactRoot"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
