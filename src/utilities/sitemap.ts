@@ -10,19 +10,27 @@ export const sitemap = [
     title: 'Home',
   },
   {
-    route: '/conway',
-    title: 'Conway',
+    route: '/overlap',
+    title: 'Overlap',
   },
   {
-    route: '/hacker-news',
-    title: 'Hacker News',
+    route: '/restricted',
+    title: 'Restricted',
   },
   {
-    route: '/memory',
-    title: 'Memory',
+    route: '/sequence',
+    title: 'Sequence',
   },
   {
-    route: '/tictactoe',
-    title: 'Tic Tac Toe',
+    route: '/asynchronous',
+    title: 'Asynchronous',
+  },
+  {
+    route: '/auto-suspend',
+    title: 'Auto Suspend',
+  },
+  {
+    route: '/visibility',
+    title: 'Visibility',
   },
 ];
