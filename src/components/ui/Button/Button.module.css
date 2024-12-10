@@ -16,8 +16,7 @@
   padding: var(--button-padding-y) var(--button-padding-x);
   color: var(--button-color-text);
   background-color: var(--button-color-bg);
-  border: 1px solid transparent;
-  border-radius: var(--radius);
+  border: 2px solid transparent;
   overflow: hidden;
 
   &:disabled {

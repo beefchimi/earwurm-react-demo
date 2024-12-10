@@ -1,0 +1,42 @@
+@import '@src/styles/media-queries.css';
+
+.StackList {
+  --item-padding: 10px;
+  --label-size: 14px;
+
+  @media (--min-phablet) {
+    --item-padding: 12px;
+    --label-size: 16px;
+  }
+
+  @media (--min-tablet) {
+    --item-padding: 14px;
+    --label-size: 18px;
+  }
+
+  @media (--min-desktop) {
+    --item-padding: 16px;
+    --label-size: 20px;
+  }
+
+  display: grid;
+  gap: -2px;
+  width: 288px;
+}
+
+.StackItem {
+  padding: var(--item-padding);
+  border: 2px solid var(--color-text);
+
+  & + & {
+    border-top: none;
+  }
+}
+
+.StackLabel {
+  font-family: var(--font-body);
+  font-size: var(--label-size);
+  font-weight: 500;
+  line-height: 1.2;
+  color: currentColor;
+}

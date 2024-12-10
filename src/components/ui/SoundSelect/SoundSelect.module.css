@@ -1,0 +1,64 @@
+.SoundSelect {
+  --select-padding-x: 12px;
+  --select-padding-y: 8px;
+  --select-font-size: 14px;
+  --select-color-text: var(--color-text);
+  --select-color-bg: transparent;
+}
+
+.FormSelect {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--select-padding-y) var(--select-padding-x);
+  color: var(--select-color-text);
+  background-color: var(--select-color-bg);
+  border: 2px solid var(--select-color-text);
+
+  font-size: var(--select-font-size);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  user-select: none;
+
+  outline: var(--focus-ring-size) solid transparent;
+  outline-offset: var(--focus-ring-size);
+
+  transition-property: color, background-color, border-color, outline-color,
+    opacity;
+  transition-duration: var(--speed);
+  transition-timing-function: var(--ease);
+
+  &:disabled {
+    opacity: 0.8;
+  }
+
+  &[aria-pressed] {
+    box-shadow: inset 0 0 0 2px var(--select-color-text);
+  }
+
+  &:focus-visible {
+    outline-color: var(--focus-ring-color);
+  }
+
+  &:hover {
+    --select-color-text: var(--color-primary);
+  }
+
+  &:active {
+    --select-color-text: var(--color-primary-dark);
+  }
+}
+
+.FormLabel {
+  /* Not using `text-box-trim` for this font. */
+  font-size: var(--select-font-size);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}

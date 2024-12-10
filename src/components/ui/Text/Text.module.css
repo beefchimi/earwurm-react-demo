@@ -1,0 +1,56 @@
+@import '@src/styles/media-queries.css';
+
+.Text {
+  font-family: var(--font-body);
+  font-size: var(--text-size, 16px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: currentColor;
+
+  & > strong {
+    font-weight: 700;
+  }
+}
+
+/* --- Variants --- */
+
+.variantNormal {
+}
+
+.variantDanger {
+  color: var(--color-danger);
+}
+
+/* --- Sizes --- */
+
+.sizeSmall {
+  --text-size: 14px;
+
+  @media (--min-phablet) {
+    --text-size: 16px;
+  }
+
+  @media (--min-tablet) {
+    --text-size: 18px;
+  }
+
+  @media (--min-desktop) {
+    --text-size: 20px;
+  }
+}
+
+.sizeMedium {
+  --text-size: 16px;
+
+  @media (--min-phablet) {
+    --text-size: 20px;
+  }
+
+  @media (--min-tablet) {
+    --text-size: 28px;
+  }
+
+  @media (--min-desktop) {
+    --text-size: 32px;
+  }
+}

@@ -5,6 +5,7 @@
   font-size: var(--display-text-size, 16px);
   font-weight: 800;
   line-height: 1.2;
+  text-transform: uppercase;
   color: currentColor;
 }
 
