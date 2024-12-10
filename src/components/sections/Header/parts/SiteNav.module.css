@@ -14,14 +14,15 @@
   z-index: 100;
   position: absolute;
   top: 40px;
-  right: -4px;
+  right: 0;
   display: none;
   grid-auto-flow: unset;
   justify-content: right;
   justify-items: right;
+  text-align: right;
   padding: 8px;
-  border-radius: var(--radius);
-  background-color: var(--shade-light-80);
+  border: 2px solid var(--color-text);
+  background-color: var(--color-bg);
 }
 
 .showMobileMenu {
@@ -37,8 +38,7 @@
 
   display: block;
   padding: var(--site-nav-link-padding);
-  border-radius: var(--radius);
-  background-color: transparent;
+  border: 2px solid transparent;
   white-space: nowrap;
   /* `focus-ring` + `transition` is inherited by `button-basic` */
 
@@ -53,17 +53,17 @@
 
   &:focus-visible,
   &:hover {
-    color: var(--color-accent);
+    color: var(--color-primary);
     background-color: var(--shade-dark-4);
   }
 
   &:active {
-    color: var(--color-accent-dark);
+    color: var(--color-primary-dark);
     background-color: transparent;
   }
 }
 
 .active {
-  color: var(--color-accent);
-  background-color: var(--shade-dark-4);
+  color: var(--color-primary);
+  border-color: currentColor;
 }

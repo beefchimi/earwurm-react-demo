@@ -11,7 +11,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 export function Footer() {
   return (
     <footer id="Page-Footer" className={styles.Footer}>
-      <DisplayText size="h6">Section: Footer</DisplayText>
+      <DisplayText size="h6">Generic Footer</DisplayText>
 
       <div className={styles.Layout}>
         <p className={styles.LegalText}>

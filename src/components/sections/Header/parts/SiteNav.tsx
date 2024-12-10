@@ -28,6 +28,8 @@ export function SiteNav() {
     <Button
       label="Menu"
       ariaLabel="Toggle the site navigation"
+      variant="background"
+      outline
       onClick={toggleMobileMenu}
     />
   );

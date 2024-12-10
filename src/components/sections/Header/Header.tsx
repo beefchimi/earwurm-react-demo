@@ -13,7 +13,7 @@ export function Header({children}: HeaderProps) {
   return (
     <header id="Page-Header" className={styles.Header}>
       <div className={styles.Layout}>
-        <DisplayText truncate>Section: Header</DisplayText>
+        <DisplayText truncate>Earwurm React</DisplayText>
         <SiteNav />
       </div>
 

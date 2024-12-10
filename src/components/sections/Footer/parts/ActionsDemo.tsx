@@ -24,7 +24,7 @@ export function ActionsDemo({children}: ActionsDemoProps) {
           label="Toggle Theme"
           ariaLabel="Switch between light / dark mode"
           size="small"
-          variant="tertiary"
+          variant="primary"
           outline
           onClick={toggleTheme}
         />
@@ -33,7 +33,7 @@ export function ActionsDemo({children}: ActionsDemoProps) {
           label="Watch YouTube"
           ariaLabel="Open a YouTube overlay"
           size="small"
-          variant="tertiary"
+          variant="primary"
           outline
           onClick={() => setOpen(true)}
         />
