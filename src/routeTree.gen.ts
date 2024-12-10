@@ -19,6 +19,7 @@ import { Route as rootRoute } from './routes/__root'
 const VisibilityLazyImport = createFileRoute('/visibility')()
 const SequenceLazyImport = createFileRoute('/sequence')()
 const RestrictedLazyImport = createFileRoute('/restricted')()
+const QueuedLazyImport = createFileRoute('/queued')()
 const OverlapLazyImport = createFileRoute('/overlap')()
 const AutoSuspendLazyImport = createFileRoute('/auto-suspend')()
 const AsynchronousLazyImport = createFileRoute('/asynchronous')()
@@ -43,6 +44,12 @@ const RestrictedLazyRoute = RestrictedLazyImport.update({
   path: '/restricted',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/restricted.lazy').then((d) => d.Route))
+
+const QueuedLazyRoute = QueuedLazyImport.update({
+  id: '/queued',
+  path: '/queued',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/queued.lazy').then((d) => d.Route))
 
 const OverlapLazyRoute = OverlapLazyImport.update({
   id: '/overlap',
@@ -100,6 +107,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OverlapLazyImport
       parentRoute: typeof rootRoute
     }
+    '/queued': {
+      id: '/queued'
+      path: '/queued'
+      fullPath: '/queued'
+      preLoaderRoute: typeof QueuedLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/restricted': {
       id: '/restricted'
       path: '/restricted'
@@ -131,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/asynchronous': typeof AsynchronousLazyRoute
   '/auto-suspend': typeof AutoSuspendLazyRoute
   '/overlap': typeof OverlapLazyRoute
+  '/queued': typeof QueuedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
   '/sequence': typeof SequenceLazyRoute
   '/visibility': typeof VisibilityLazyRoute
@@ -141,6 +156,7 @@ export interface FileRoutesByTo {
   '/asynchronous': typeof AsynchronousLazyRoute
   '/auto-suspend': typeof AutoSuspendLazyRoute
   '/overlap': typeof OverlapLazyRoute
+  '/queued': typeof QueuedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
   '/sequence': typeof SequenceLazyRoute
   '/visibility': typeof VisibilityLazyRoute
@@ -152,6 +168,7 @@ export interface FileRoutesById {
   '/asynchronous': typeof AsynchronousLazyRoute
   '/auto-suspend': typeof AutoSuspendLazyRoute
   '/overlap': typeof OverlapLazyRoute
+  '/queued': typeof QueuedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
   '/sequence': typeof SequenceLazyRoute
   '/visibility': typeof VisibilityLazyRoute
@@ -164,6 +181,7 @@ export interface FileRouteTypes {
     | '/asynchronous'
     | '/auto-suspend'
     | '/overlap'
+    | '/queued'
     | '/restricted'
     | '/sequence'
     | '/visibility'
@@ -173,6 +191,7 @@ export interface FileRouteTypes {
     | '/asynchronous'
     | '/auto-suspend'
     | '/overlap'
+    | '/queued'
     | '/restricted'
     | '/sequence'
     | '/visibility'
@@ -182,6 +201,7 @@ export interface FileRouteTypes {
     | '/asynchronous'
     | '/auto-suspend'
     | '/overlap'
+    | '/queued'
     | '/restricted'
     | '/sequence'
     | '/visibility'
@@ -193,6 +213,7 @@ export interface RootRouteChildren {
   AsynchronousLazyRoute: typeof AsynchronousLazyRoute
   AutoSuspendLazyRoute: typeof AutoSuspendLazyRoute
   OverlapLazyRoute: typeof OverlapLazyRoute
+  QueuedLazyRoute: typeof QueuedLazyRoute
   RestrictedLazyRoute: typeof RestrictedLazyRoute
   SequenceLazyRoute: typeof SequenceLazyRoute
   VisibilityLazyRoute: typeof VisibilityLazyRoute
@@ -203,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   AsynchronousLazyRoute: AsynchronousLazyRoute,
   AutoSuspendLazyRoute: AutoSuspendLazyRoute,
   OverlapLazyRoute: OverlapLazyRoute,
+  QueuedLazyRoute: QueuedLazyRoute,
   RestrictedLazyRoute: RestrictedLazyRoute,
   SequenceLazyRoute: SequenceLazyRoute,
   VisibilityLazyRoute: VisibilityLazyRoute,
@@ -222,6 +244,7 @@ export const routeTree = rootRoute
         "/asynchronous",
         "/auto-suspend",
         "/overlap",
+        "/queued",
         "/restricted",
         "/sequence",
         "/visibility"
@@ -238,6 +261,9 @@ export const routeTree = rootRoute
     },
     "/overlap": {
       "filePath": "overlap.lazy.tsx"
+    },
+    "/queued": {
+      "filePath": "queued.lazy.tsx"
     },
     "/restricted": {
       "filePath": "restricted.lazy.tsx"
