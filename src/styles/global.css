@@ -40,6 +40,16 @@ body {
   font-style: normal;
 }
 
+/* --- Components --- */
+
+.main-section {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /* --- Actions --- */
 
 .button-basic,

@@ -1,24 +1,24 @@
 /* --- Colours --- */
 :root {
-  --color-text-light: #1c5f54;
-  --color-text: #0f332d;
-  --color-text-dark: #09201c;
+  --color-text-light: #141414;
+  --color-text: #0a0a0a;
+  --color-text-dark: #000;
 
-  --color-bg-light: #f6f8f2;
-  --color-bg: #e1e8d4;
-  --color-bg-dark: #d1dbbd;
+  --color-bg-light: #fff;
+  --color-bg: #ebebeb;
+  --color-bg-dark: #d6d6d6;
 
-  --color-primary-light: #397f63;
-  --color-primary: #2c634d;
-  --color-primary-dark: #204637;
+  --color-primary-light: #3d1fff;
+  --color-primary: #2400ff;
+  --color-primary-dark: #1e00e0;
 
-  --color-secondary-light: #aecea1;
-  --color-secondary: #8eba7d;
-  --color-secondary-dark: #80b26c;
+  --color-secondary-light: #f8ff33;
+  --color-secondary: #f7ff00;
+  --color-secondary-dark: #d9e000;
 
-  --color-accent-light: #56b37a;
-  --color-accent: #41905f;
-  --color-accent-dark: #397f54;
+  --color-accent-light: #8b33ff;
+  --color-accent: #6f00ff;
+  --color-accent-dark: #6100e0;
 
   /* Persistent Colors */
   --color-danger-light: #e34f6c;
@@ -112,7 +112,7 @@
 /* --- Typography & Components --- */
 :root {
   --font-body: 'DM Sans', var(--font-stack-sans-serif);
-  --font-title: 'Playfair Display', var(--font-stack-serif);
+  --font-title: 'Lexend Zetta', var(--font-stack-serif);
 
   --focus-ring-color: var(--color-primary);
   --focus-ring-size: 2px;
@@ -123,27 +123,16 @@
 /* --- Dark Mode --- */
 
 html[data-theme='dark'] {
+  /* Text/Bg inverted */
   --color-text-light: #fff;
-  --color-text: #e7f8e2;
-  --color-text-dark: #d6f3ce;
+  --color-text: #ebebeb;
+  --color-text-dark: #d6d6d6;
 
-  --color-bg-light: #213131;
-  --color-bg: #101818;
-  --color-bg-dark: #080c0c;
+  --color-bg-light: #141414;
+  --color-bg: #0a0a0a;
+  --color-bg-dark: #000;
 
-  --color-primary-light: #8bf8a1;
-  --color-primary: #60f67e;
-  --color-primary-dark: #3ef463;
-
-  --color-secondary-light: #c0edd2;
-  --color-secondary: #98e1b7;
-  --color-secondary-dark: #81daa6;
-
-  --color-accent-light: #eef47c;
-  --color-accent: #e9f056;
-  --color-accent-dark: #e4ed31;
-
-  /* Shades (inverted) */
+  /* Shades inverted */
   --shade-light-4: rgb(0, 0, 0, 0.04);
   --shade-light-20: rgb(0, 0, 0, 0.2);
   --shade-light-80: rgb(0, 0, 0, 0.8);
