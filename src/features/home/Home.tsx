@@ -1,5 +1,6 @@
 import {clx} from 'beeftools';
 
+import {Text} from '@src/components/ui/Text/Text.tsx';
 import styles from './Home.module.css';
 
 export function Home() {
@@ -10,7 +11,7 @@ export function Home() {
           [styles.invert]: false,
         })}
       >
-        <p>Select a audio pattern from the navigation list.</p>
+        <Text>Select a audio pattern from the navigation list.</Text>
       </div>
     </div>
   );
