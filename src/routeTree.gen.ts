@@ -21,6 +21,7 @@ const SequenceLazyImport = createFileRoute('/sequence')()
 const RestrictedLazyImport = createFileRoute('/restricted')()
 const QueuedLazyImport = createFileRoute('/queued')()
 const OverlapLazyImport = createFileRoute('/overlap')()
+const CascadeLazyImport = createFileRoute('/cascade')()
 const AutoSuspendLazyImport = createFileRoute('/auto-suspend')()
 const AsynchronousLazyImport = createFileRoute('/asynchronous')()
 const IndexLazyImport = createFileRoute('/')()
@@ -56,6 +57,12 @@ const OverlapLazyRoute = OverlapLazyImport.update({
   path: '/overlap',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/overlap.lazy').then((d) => d.Route))
+
+const CascadeLazyRoute = CascadeLazyImport.update({
+  id: '/cascade',
+  path: '/cascade',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/cascade.lazy').then((d) => d.Route))
 
 const AutoSuspendLazyRoute = AutoSuspendLazyImport.update({
   id: '/auto-suspend',
@@ -98,6 +105,13 @@ declare module '@tanstack/react-router' {
       path: '/auto-suspend'
       fullPath: '/auto-suspend'
       preLoaderRoute: typeof AutoSuspendLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/cascade': {
+      id: '/cascade'
+      path: '/cascade'
+      fullPath: '/cascade'
+      preLoaderRoute: typeof CascadeLazyImport
       parentRoute: typeof rootRoute
     }
     '/overlap': {
@@ -144,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/asynchronous': typeof AsynchronousLazyRoute
   '/auto-suspend': typeof AutoSuspendLazyRoute
+  '/cascade': typeof CascadeLazyRoute
   '/overlap': typeof OverlapLazyRoute
   '/queued': typeof QueuedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
@@ -155,6 +170,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/asynchronous': typeof AsynchronousLazyRoute
   '/auto-suspend': typeof AutoSuspendLazyRoute
+  '/cascade': typeof CascadeLazyRoute
   '/overlap': typeof OverlapLazyRoute
   '/queued': typeof QueuedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
@@ -167,6 +183,7 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/asynchronous': typeof AsynchronousLazyRoute
   '/auto-suspend': typeof AutoSuspendLazyRoute
+  '/cascade': typeof CascadeLazyRoute
   '/overlap': typeof OverlapLazyRoute
   '/queued': typeof QueuedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
@@ -180,6 +197,7 @@ export interface FileRouteTypes {
     | '/'
     | '/asynchronous'
     | '/auto-suspend'
+    | '/cascade'
     | '/overlap'
     | '/queued'
     | '/restricted'
@@ -190,6 +208,7 @@ export interface FileRouteTypes {
     | '/'
     | '/asynchronous'
     | '/auto-suspend'
+    | '/cascade'
     | '/overlap'
     | '/queued'
     | '/restricted'
@@ -200,6 +219,7 @@ export interface FileRouteTypes {
     | '/'
     | '/asynchronous'
     | '/auto-suspend'
+    | '/cascade'
     | '/overlap'
     | '/queued'
     | '/restricted'
@@ -212,6 +232,7 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AsynchronousLazyRoute: typeof AsynchronousLazyRoute
   AutoSuspendLazyRoute: typeof AutoSuspendLazyRoute
+  CascadeLazyRoute: typeof CascadeLazyRoute
   OverlapLazyRoute: typeof OverlapLazyRoute
   QueuedLazyRoute: typeof QueuedLazyRoute
   RestrictedLazyRoute: typeof RestrictedLazyRoute
@@ -223,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AsynchronousLazyRoute: AsynchronousLazyRoute,
   AutoSuspendLazyRoute: AutoSuspendLazyRoute,
+  CascadeLazyRoute: CascadeLazyRoute,
   OverlapLazyRoute: OverlapLazyRoute,
   QueuedLazyRoute: QueuedLazyRoute,
   RestrictedLazyRoute: RestrictedLazyRoute,
@@ -243,6 +265,7 @@ export const routeTree = rootRoute
         "/",
         "/asynchronous",
         "/auto-suspend",
+        "/cascade",
         "/overlap",
         "/queued",
         "/restricted",
@@ -258,6 +281,9 @@ export const routeTree = rootRoute
     },
     "/auto-suspend": {
       "filePath": "auto-suspend.lazy.tsx"
+    },
+    "/cascade": {
+      "filePath": "cascade.lazy.tsx"
     },
     "/overlap": {
       "filePath": "overlap.lazy.tsx"
