@@ -22,7 +22,7 @@ export function Main({children}: MainProps) {
 
   return (
     <main id="Page-Main" className={styles.Main}>
-      <DisplayText size="h2">{pageTitle}</DisplayText>
+      <DisplayText size="h3">{pageTitle}</DisplayText>
       {children}
     </main>
   );

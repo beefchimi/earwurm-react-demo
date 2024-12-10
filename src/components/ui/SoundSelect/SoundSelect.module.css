@@ -1,6 +1,7 @@
 .SoundSelect {
   --select-padding-x: 12px;
   --select-padding-y: 8px;
+  --select-icon-size: 14px;
   --select-font-size: 14px;
   --select-color-text: var(--color-text);
   --select-color-bg: transparent;
@@ -13,11 +14,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--select-padding-y) var(--select-padding-x);
+  padding-top: var(--select-padding-y);
+  padding-bottom: var(--select-padding-y);
+  padding-left: var(--select-padding-x);
+  padding-right: calc(var(--select-padding-x) * 2 + var(--select-icon-size));
   color: var(--select-color-text);
   background-color: var(--select-color-bg);
   border: 2px solid var(--select-color-text);
 
+  /* Typography */
   font-size: var(--select-font-size);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -25,9 +30,17 @@
   text-transform: uppercase;
   user-select: none;
 
+  /* Arrow icon */
+  background-image: url('@src/assets/svg/icon-chevron-down.svg');
+  background-position: right var(--select-padding-x) center;
+  background-size: var(--select-icon-size) var(--select-icon-size);
+  background-repeat: no-repeat;
+
+  /* Focus */
   outline: var(--focus-ring-size) solid transparent;
   outline-offset: var(--focus-ring-size);
 
+  /* Animation */
   transition-property: color, background-color, border-color, outline-color,
     opacity;
   transition-duration: var(--speed);

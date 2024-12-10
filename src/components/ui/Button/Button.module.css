@@ -148,6 +148,7 @@ html[data-theme='light'] {
   letter-spacing: 0.04em;
   line-height: 1.2;
   text-transform: uppercase;
+  user-select: none;
 }
 
 /* --- Loading Spinner --- */

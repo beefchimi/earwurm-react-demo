@@ -1,12 +1,7 @@
-import {useState, type ReactNode} from 'react';
+import {type ReactNode} from 'react';
 
-import {Portal} from '@src/components/primitives/Portal.tsx';
-import {Overlay} from '@src/components/primitives/Overlay/Overlay.tsx';
-import {YouTubeEmbed} from '@src/components/primitives/YouTubeEmbed/YouTubeEmbed.tsx';
 import {useTheme} from '@src/providers/ThemeProvider.tsx';
-
 import {Button} from '@src/components/ui/Button/Button.tsx';
-
 import styles from './ActionsDemo.module.css';
 
 export interface ActionsDemoProps {
@@ -15,7 +10,6 @@ export interface ActionsDemoProps {
 
 export function ActionsDemo({children}: ActionsDemoProps) {
   const {toggleTheme} = useTheme();
-  const [open, setOpen] = useState(false);
 
   return (
     <div className={styles.ActionsDemo}>
@@ -30,20 +24,15 @@ export function ActionsDemo({children}: ActionsDemoProps) {
         />
 
         <Button
-          label="Watch YouTube"
+          label="GitHub"
           ariaLabel="Open a YouTube overlay"
           size="small"
           variant="primary"
           outline
-          onClick={() => setOpen(true)}
+          external
+          url="https://github.com/beefchimi/earwurm"
         />
       </div>
-
-      <Portal>
-        <Overlay open={open} onClose={() => setOpen(false)}>
-          <YouTubeEmbed videoId="430mSjFYHI0" autoPlay allowFullscreen />
-        </Overlay>
-      </Portal>
 
       {children}
     </div>

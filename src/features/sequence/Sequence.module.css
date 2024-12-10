@@ -1,2 +1,13 @@
 .Sequence {
 }
+
+.ActionList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.ActionItem {
+  flex: 0 0 auto;
+}
