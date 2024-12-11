@@ -41,10 +41,7 @@ export function Sequence() {
   function handleAddToSequence(id: AudioLibKey) {
     const stack = earwurmManager.get(id);
 
-    stack
-      ?.prepare()
-      .then(pushToQueue)
-      .catch(() => console.error('Failed to prepare sound'));
+    stack?.prepare().then(pushToQueue).catch(console.error);
   }
 
   const handlePlayChange: ManagerEventMap['play'] = useCallback((active) => {

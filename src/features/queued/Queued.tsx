@@ -26,7 +26,7 @@ export function Queued() {
     stack
       .prepare()
       .then((sound) => console.log('Sound added to queue', sound.id))
-      .catch(() => console.error('Failed to play sound'));
+      .catch(console.error);
   }
 
   const handleQueueChange: StackEventMap['queue'] = useCallback((newKeys) => {

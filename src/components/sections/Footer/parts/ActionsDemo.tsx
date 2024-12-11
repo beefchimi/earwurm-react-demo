@@ -18,7 +18,7 @@ export function ActionsDemo({children}: ActionsDemoProps) {
           label="Toggle Theme"
           ariaLabel="Switch between light / dark mode"
           size="small"
-          variant="primary"
+          variant="background"
           outline
           onClick={toggleTheme}
         />
@@ -27,7 +27,7 @@ export function ActionsDemo({children}: ActionsDemoProps) {
           label="GitHub"
           ariaLabel="Open a YouTube overlay"
           size="small"
-          variant="primary"
+          variant="background"
           outline
           external
           url="https://github.com/beefchimi/earwurm"

@@ -33,6 +33,10 @@
   }
 }
 
+.empty {
+  border-style: dashed;
+}
+
 .StackLabel {
   font-family: var(--font-body);
   font-size: var(--label-size);

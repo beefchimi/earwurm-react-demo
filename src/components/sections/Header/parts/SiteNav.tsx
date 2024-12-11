@@ -8,6 +8,10 @@ import {Button} from '@src/components/ui/Button/Button.tsx';
 
 import styles from './SiteNav.module.css';
 
+const filteredSitemap = sitemap.filter(({route}) => {
+  return route !== '/' && route !== '/asynchronous';
+});
+
 export function SiteNav() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -44,7 +48,7 @@ export function SiteNav() {
           [styles.showMobileMenu]: showMobileMenu,
         })}
       >
-        {sitemap.map(({route, title}) => (
+        {filteredSitemap.map(({route, title}) => (
           <li key={title} className={styles.Item}>
             <Link
               to={route}

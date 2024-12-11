@@ -33,7 +33,7 @@ export function AutoSuspend() {
     stack
       .prepare()
       .then((sound) => sound.play())
-      .catch(() => console.error('Failed to play sound'));
+      .catch(console.error);
   }
 
   const handleStateChange: ManagerEventMap['state'] = useCallback((state) => {

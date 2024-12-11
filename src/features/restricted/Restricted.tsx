@@ -30,7 +30,7 @@ export function Restricted() {
     stack
       .prepare()
       .then((sound) => sound.play())
-      .catch(() => console.error('Failed to play sound'));
+      .catch(console.error);
   }
 
   const handleQueueChange: StackEventMap['queue'] = useCallback((newKeys) => {

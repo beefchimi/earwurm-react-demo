@@ -12,17 +12,6 @@ import {Text} from '@src/components/ui/Text/Text.tsx';
 
 import styles from './Overlap.module.css';
 
-/*
-Alternate async handler:
-
-async function handlePlaySound() {
-  if (!stack) return;
-
-  const sound = await stack.prepare();
-  sound.play();
-}
-*/
-
 export function Overlap() {
   const [stack, setStack] = useState<Stack>();
   const [soundId, setSoundId] = useState<AudioLibKey>();
@@ -37,7 +26,7 @@ export function Overlap() {
     stack
       .prepare()
       .then((sound) => sound.play())
-      .catch(() => console.error('Failed to play sound'));
+      .catch(console.error);
   }
 
   const handleQueueChange: StackEventMap['queue'] = useCallback((newKeys) => {
@@ -51,10 +40,7 @@ export function Overlap() {
 
   useEffect(() => {
     stack?.on('queue', handleQueueChange);
-
-    return () => {
-      stack?.off('queue', handleQueueChange);
-    };
+    return () => stack?.off('queue', handleQueueChange);
   }, [stack, handleQueueChange]);
 
   const stackItems = queue.length

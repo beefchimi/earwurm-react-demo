@@ -34,3 +34,15 @@ earwurmManager.add(...AUDIO_LIB);
 export function assertSoundId(value = ''): value is AudioLibKey {
   return AUDIO_LIB_KEYS.includes(value as AudioLibKey);
 }
+
+export async function quickPlay(id: AudioLibKey, force = false) {
+  if (force) {
+    if (!earwurmManager.unlocked) earwurmManager.unlock();
+    if (earwurmManager.state !== 'running') earwurmManager.resume();
+  }
+
+  const stack = earwurmManager.get(id);
+  const sound = await stack?.prepare();
+
+  return sound?.play();
+}
