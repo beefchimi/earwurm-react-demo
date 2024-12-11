@@ -21,11 +21,7 @@ function StackItem({label, empty = false}: StackItemProps) {
 }
 
 export function StackList({children}: StackListProps) {
-  return (
-    <ul className={styles.StackList}>
-      {children ?? <StackItem label="Stack Queue is empty" empty />}
-    </ul>
-  );
+  return <ul className={styles.StackList}>{children}</ul>;
 }
 
 StackList.Item = StackItem;

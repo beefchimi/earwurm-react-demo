@@ -9,6 +9,7 @@ import {Button} from '@src/components/ui/Button/Button.tsx';
 import styles from './SiteNav.module.css';
 
 const filteredSitemap = sitemap.filter(({route}) => {
+  // TODO: Remove this once we support the `asynchronous` example.
   return route !== '/' && route !== '/asynchronous';
 });
 
