@@ -19,7 +19,7 @@ function calcVolume(queueLength = 0) {
 
 export function useCascade() {
   const [stack, setStack] = useState<Stack>();
-  const [soundId, setSoundId] = useState<AudioLibKey>();
+  const [stackId, setStackId] = useState<AudioLibKey>();
   const [queue, setQueue] = useState<string[]>([]);
   const [maxReached, setMaxReached] = useState(false);
 
@@ -45,8 +45,8 @@ export function useCascade() {
   }, []);
 
   useEffect(() => {
-    setStack(soundId ? earwurmManager.get(soundId) : undefined);
-  }, [soundId]);
+    setStack(stackId ? earwurmManager.get(stackId) : undefined);
+  }, [stackId]);
 
   useEffect(() => {
     stack?.on('queue', handleQueueChange);
@@ -56,12 +56,12 @@ export function useCascade() {
   return {
     // State values
     stack,
-    soundId,
+    stackId,
     queue,
     maxReached,
     volume,
     // Setters
-    setSoundId,
+    setStackId,
     // Handlers
     playSound,
   };

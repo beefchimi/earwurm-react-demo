@@ -4,7 +4,7 @@ import {useButtonSize} from '@src/hooks/useButtonSize.ts';
 
 import {Button} from '@src/components/ui/Button/Button.tsx';
 import {MaxStackText} from '@src/components/ui/MaxStackText/MaxStackText.tsx';
-import {SoundSelect} from '@src/components/ui/SoundSelect/SoundSelect.tsx';
+import {StackSelect} from '@src/components/ui/StackSelect/StackSelect.tsx';
 import {StackListAuto} from '@src/components/ui/StackList/StackListAuto.tsx';
 import {Text} from '@src/components/ui/Text/Text.tsx';
 
@@ -13,7 +13,7 @@ import styles from './Replaced.module.css';
 
 export function Replaced() {
   const buttonSize = useButtonSize();
-  const {soundId, queue, maxReached, setSoundId, playSound} = useReplaced();
+  const {stackId, queue, maxReached, setStackId, playSound} = useReplaced();
 
   return (
     <section className={clx('main-section', styles.Replaced)}>
@@ -22,10 +22,10 @@ export function Replaced() {
         previously invoked Sound and replace it with a new one.
       </Text>
 
-      <SoundSelect
-        value={soundId}
+      <StackSelect
+        value={stackId}
         disabled={queue.length > 0}
-        onChange={setSoundId}
+        onChange={setStackId}
       />
 
       <Button
@@ -33,7 +33,7 @@ export function Replaced() {
         aria-label="Play sound and stop any previously placing sounds"
         variant="primary"
         size={buttonSize}
-        disabled={!soundId}
+        disabled={!stackId}
         onClick={playSound}
       />
 

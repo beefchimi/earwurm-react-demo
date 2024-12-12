@@ -15,7 +15,7 @@ async function handlePlaySoundAlt() {
 
 export function useOverlap() {
   const [stack, setStack] = useState<Stack>();
-  const [soundId, setSoundId] = useState<AudioLibKey>();
+  const [stackId, setStackId] = useState<AudioLibKey>();
   const [queue, setQueue] = useState<string[]>([]);
   const [maxReached, setMaxReached] = useState(false);
 
@@ -32,8 +32,8 @@ export function useOverlap() {
   }, []);
 
   useEffect(() => {
-    setStack(soundId ? earwurmManager.get(soundId) : undefined);
-  }, [soundId]);
+    setStack(stackId ? earwurmManager.get(stackId) : undefined);
+  }, [stackId]);
 
   useEffect(() => {
     stack?.on('queue', handleQueueChange);
@@ -43,11 +43,11 @@ export function useOverlap() {
   return {
     // State values
     stack,
-    soundId,
+    stackId,
     queue,
     maxReached,
     // Setters
-    setSoundId,
+    setStackId,
     // Handlers
     playSound,
   };

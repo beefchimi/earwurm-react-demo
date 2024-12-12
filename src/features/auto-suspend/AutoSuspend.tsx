@@ -3,7 +3,7 @@ import {clx} from 'beeftools';
 import {useButtonSize} from '@src/hooks/useButtonSize.ts';
 
 import {Button} from '@src/components/ui/Button/Button.tsx';
-import {SoundSelect} from '@src/components/ui/SoundSelect/SoundSelect.tsx';
+import {StackSelect} from '@src/components/ui/StackSelect/StackSelect.tsx';
 import {StackListAuto} from '@src/components/ui/StackList/StackListAuto.tsx';
 import {Text} from '@src/components/ui/Text/Text.tsx';
 
@@ -12,7 +12,7 @@ import styles from './AutoSuspend.module.css';
 
 export function AutoSuspend() {
   const buttonSize = useButtonSize();
-  const {soundId, queue, suspended, setSoundId, playSound} = useAutoSuspend();
+  const {stackId, queue, suspended, setStackId, playSound} = useAutoSuspend();
 
   const maxLabel = suspended
     ? 'Earwurm has been suspended!'
@@ -25,10 +25,10 @@ export function AutoSuspend() {
         AudioContext by listening for state changes and setting a timeout.
       </Text>
 
-      <SoundSelect
-        value={soundId}
+      <StackSelect
+        value={stackId}
         disabled={queue.length > 0}
-        onChange={setSoundId}
+        onChange={setStackId}
       />
 
       <Button
@@ -36,7 +36,7 @@ export function AutoSuspend() {
         aria-label="Play sound"
         variant="primary"
         size={buttonSize}
-        disabled={!soundId}
+        disabled={!stackId}
         onClick={playSound}
       />
 

@@ -3,12 +3,12 @@ import {clx} from 'beeftools';
 
 import {
   AUDIO_LIB_KEYS,
-  assertSoundId,
+  assertStackId,
   type AudioLibKey,
 } from '@src/store/earwurm.ts';
-import styles from './SoundSelect.module.css';
+import styles from './StackSelect.module.css';
 
-interface SoundSelectProps {
+interface StackSelectProps {
   value?: AudioLibKey;
   disabled?: boolean;
   onChange: (value: AudioLibKey) => void;
@@ -16,15 +16,15 @@ interface SoundSelectProps {
 
 const DEFAULT_VALUE = 'defaultLabel';
 
-export function SoundSelect({
+export function StackSelect({
   value,
   disabled = false,
   onChange,
-}: SoundSelectProps) {
+}: StackSelectProps) {
   const handleChange: ChangeEventHandler<HTMLSelectElement> = useCallback(
     ({target}) => {
       const newValue = target.value;
-      if (assertSoundId(newValue)) onChange(newValue);
+      if (assertStackId(newValue)) onChange(newValue);
     },
     [onChange],
   );
@@ -36,10 +36,10 @@ export function SoundSelect({
   ));
 
   return (
-    <div className={styles.SoundSelect}>
+    <div className={styles.StackSelect}>
       <select
-        id="SoundSelect"
-        name="SoundSelect"
+        id="StackSelect"
+        name="StackSelect"
         className={styles.FormSelect}
         disabled={disabled}
         value={value ?? DEFAULT_VALUE}
@@ -52,10 +52,10 @@ export function SoundSelect({
       </select>
 
       <label
-        htmlFor="SoundSelect"
+        htmlFor="StackSelect"
         className={clx('visually-hidden', styles.FormLabel)}
       >
-        Select Sound
+        Select Stack
       </label>
     </div>
   );

@@ -8,7 +8,7 @@ function Component() {
   async function handlePreload() {
     if (!stack) return;
 
-    const loaded = loadedStacks.includes(soundId);
+    const loaded = loadedStacks.includes(stackId);
 
     if (!loaded) {
       setLoadingState('pending');

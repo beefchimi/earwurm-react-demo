@@ -5,13 +5,15 @@ import {earwurmManager, type AudioLibKey} from '@src/store/earwurm.ts';
 
 export function useReplaced() {
   const [stack, setStack] = useState<Stack>();
-  const [soundId, setSoundId] = useState<AudioLibKey>();
+  const [stackId, setStackId] = useState<AudioLibKey>();
   const [queue, setQueue] = useState<string[]>([]);
   const [maxReached, setMaxReached] = useState(false);
 
   const playSound = useCallback(() => {
     if (!stack) return;
 
+    // If a sound is at the top of the queue and playing,
+    // stop it before proceeding with the next sound.
     const existingSound = stack.get(stack.keys[0]);
     if (existingSound && stack.playing) existingSound.stop();
 
@@ -27,8 +29,8 @@ export function useReplaced() {
   }, []);
 
   useEffect(() => {
-    setStack(soundId ? earwurmManager.get(soundId) : undefined);
-  }, [soundId]);
+    setStack(stackId ? earwurmManager.get(stackId) : undefined);
+  }, [stackId]);
 
   useEffect(() => {
     stack?.on('queue', handleQueueChange);
@@ -38,11 +40,11 @@ export function useReplaced() {
   return {
     // State values
     stack,
-    soundId,
+    stackId,
     queue,
     maxReached,
     // Setters
-    setSoundId,
+    setStackId,
     // Handlers
     playSound,
   };

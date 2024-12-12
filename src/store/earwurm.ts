@@ -31,7 +31,7 @@ export const earwurmManager = new Earwurm({transitions: true});
 // whenever a Sound is requested for the first time.
 earwurmManager.add(...AUDIO_LIB);
 
-export function assertSoundId(value = ''): value is AudioLibKey {
+export function assertStackId(value = ''): value is AudioLibKey {
   return AUDIO_LIB_KEYS.includes(value as AudioLibKey);
 }
 

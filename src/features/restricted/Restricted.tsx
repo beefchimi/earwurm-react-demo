@@ -4,7 +4,7 @@ import {useButtonSize} from '@src/hooks/useButtonSize.ts';
 
 import {Button} from '@src/components/ui/Button/Button.tsx';
 import {MaxStackText} from '@src/components/ui/MaxStackText/MaxStackText.tsx';
-import {SoundSelect} from '@src/components/ui/SoundSelect/SoundSelect.tsx';
+import {StackSelect} from '@src/components/ui/StackSelect/StackSelect.tsx';
 import {StackListAuto} from '@src/components/ui/StackList/StackListAuto.tsx';
 import {Text} from '@src/components/ui/Text/Text.tsx';
 
@@ -13,7 +13,7 @@ import styles from './Restricted.module.css';
 
 export function Restricted() {
   const buttonSize = useButtonSize();
-  const {soundId, queue, maxReached, setSoundId, playSound} = useRestricted();
+  const {stackId, queue, maxReached, setStackId, playSound} = useRestricted();
 
   return (
     <section className={clx('main-section', styles.Restricted)}>
@@ -23,10 +23,10 @@ export function Restricted() {
         Stack queue is empty.
       </Text>
 
-      <SoundSelect
-        value={soundId}
+      <StackSelect
+        value={stackId}
         disabled={queue.length > 0}
-        onChange={setSoundId}
+        onChange={setStackId}
       />
 
       <Button
@@ -34,7 +34,7 @@ export function Restricted() {
         aria-label="Play sound only when the queue is empty"
         variant="primary"
         size={buttonSize}
-        disabled={!soundId}
+        disabled={!stackId}
         loading={queue.length > 0}
         onClick={playSound}
       />

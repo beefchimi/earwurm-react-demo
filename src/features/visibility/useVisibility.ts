@@ -9,7 +9,7 @@ import {
 
 export function useVisibility() {
   const [stack, setStack] = useState<Stack>();
-  const [soundId, setSoundId] = useState<AudioLibKey>();
+  const [stackId, setStackId] = useState<AudioLibKey>();
   const [queue, setQueue] = useState<string[]>([]);
   const [maxReached, setMaxReached] = useState(false);
 
@@ -32,9 +32,14 @@ export function useVisibility() {
       earwurmManager.resume();
     }
 
+    /*
+    A common use case for this is restoring audio on a
+    mobile device that has gone to sleep.
+
     if (document.hidden && earwurmManager.state === 'interrupted') {
-      console.log('Unique case for iOS devices');
+      earwurmManager.resume();
     }
+    */
 
     // To more easily demonstate the visibility change, we can play
     // unique Sounds when toggling document visibility.
@@ -50,8 +55,8 @@ export function useVisibility() {
   }, [handleVisibilityChange]);
 
   useEffect(() => {
-    setStack(soundId ? earwurmManager.get(soundId) : undefined);
-  }, [soundId]);
+    setStack(stackId ? earwurmManager.get(stackId) : undefined);
+  }, [stackId]);
 
   useEffect(() => {
     stack?.on('queue', handleQueueChange);
@@ -61,11 +66,11 @@ export function useVisibility() {
   return {
     // State values
     stack,
-    soundId,
+    stackId,
     queue,
     maxReached,
     // Setters
-    setSoundId,
+    setStackId,
     // Handlers
     playSound,
   };

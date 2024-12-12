@@ -5,7 +5,7 @@ import {earwurmManager, type AudioLibKey} from '@src/store/earwurm.ts';
 
 export function useQueued() {
   const [stack, setStack] = useState<Stack>();
-  const [soundId, setSoundId] = useState<AudioLibKey>();
+  const [stackId, setStackId] = useState<AudioLibKey>();
   const [queue, setQueue] = useState<string[]>([]);
   const [maxReached, setMaxReached] = useState(false);
 
@@ -36,14 +36,14 @@ export function useQueued() {
     const firstInQueue = queue[0];
 
     if (stack && firstInQueue) {
-      const firstSound = stack.get(queue[0]);
+      const firstSound = stack.get(firstInQueue);
       if (firstSound?.state === 'created') firstSound.play();
     }
   }, [stack, queue]);
 
   useEffect(() => {
-    setStack(soundId ? earwurmManager.get(soundId) : undefined);
-  }, [soundId]);
+    setStack(stackId ? earwurmManager.get(stackId) : undefined);
+  }, [stackId]);
 
   useEffect(() => {
     stack?.on('queue', handleQueueChange);
@@ -53,11 +53,11 @@ export function useQueued() {
   return {
     // State values
     stack,
-    soundId,
+    stackId,
     queue,
     maxReached,
     // Setters
-    setSoundId,
+    setStackId,
     // Handlers
     queueSound,
   };

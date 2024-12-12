@@ -3,7 +3,7 @@ import {clx} from 'beeftools';
 import {useButtonSize} from '@src/hooks/useButtonSize.ts';
 
 import {Button} from '@src/components/ui/Button/Button.tsx';
-import {SoundSelect} from '@src/components/ui/SoundSelect/SoundSelect.tsx';
+import {StackSelect} from '@src/components/ui/StackSelect/StackSelect.tsx';
 import {StackListAuto} from '@src/components/ui/StackList/StackListAuto.tsx';
 import {Text} from '@src/components/ui/Text/Text.tsx';
 
@@ -12,7 +12,7 @@ import styles from './Cascade.module.css';
 
 export function Cascade() {
   const buttonSize = useButtonSize();
-  const {soundId, queue, maxReached, volume, setSoundId, playSound} =
+  const {stackId, queue, maxReached, volume, setStackId, playSound} =
     useCascade();
 
   const volumeLabel = queue.length
@@ -26,10 +26,10 @@ export function Cascade() {
         overlap.
       </Text>
 
-      <SoundSelect
-        value={soundId}
+      <StackSelect
+        value={stackId}
         disabled={queue.length > 0}
-        onChange={setSoundId}
+        onChange={setStackId}
       />
 
       <Button
@@ -37,7 +37,7 @@ export function Cascade() {
         aria-label="Play sound"
         variant="primary"
         size={buttonSize}
-        disabled={!soundId}
+        disabled={!stackId || maxReached}
         onClick={playSound}
       />
 

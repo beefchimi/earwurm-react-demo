@@ -13,7 +13,7 @@ const SUSPEND_AFTER_MS = 4000;
 
 export function useAutoSuspend() {
   const [stack, setStack] = useState<Stack>();
-  const [soundId, setSoundId] = useState<AudioLibKey>();
+  const [stackId, setStackId] = useState<AudioLibKey>();
   const [queue, setQueue] = useState<string[]>([]);
   const [maxReached, setMaxReached] = useState(false);
 
@@ -43,8 +43,8 @@ export function useAutoSuspend() {
   }, []);
 
   useEffect(() => {
-    setStack(soundId ? earwurmManager.get(soundId) : undefined);
-  }, [soundId]);
+    setStack(stackId ? earwurmManager.get(stackId) : undefined);
+  }, [stackId]);
 
   useEffect(() => {
     earwurmManager.on('state', handleStateChange);
@@ -69,13 +69,13 @@ export function useAutoSuspend() {
   return {
     // State values
     stack,
-    soundId,
+    stackId,
     queue,
     maxReached,
     playing,
     suspended,
     // Setters
-    setSoundId,
+    setStackId,
     // Handlers
     playSound,
   };

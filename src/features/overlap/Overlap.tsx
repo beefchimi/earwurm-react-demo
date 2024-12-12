@@ -4,8 +4,8 @@ import {useButtonSize} from '@src/hooks/useButtonSize.ts';
 
 import {Button} from '@src/components/ui/Button/Button.tsx';
 import {MaxStackText} from '@src/components/ui/MaxStackText/MaxStackText.tsx';
-import {SoundSelect} from '@src/components/ui/SoundSelect/SoundSelect.tsx';
 import {StackListAuto} from '@src/components/ui/StackList/StackListAuto.tsx';
+import {StackSelect} from '@src/components/ui/StackSelect/StackSelect.tsx';
 import {Text} from '@src/components/ui/Text/Text.tsx';
 
 import {useOverlap} from './useOverlap.ts';
@@ -13,7 +13,7 @@ import styles from './Overlap.module.css';
 
 export function Overlap() {
   const buttonSize = useButtonSize();
-  const {soundId, queue, maxReached, setSoundId, playSound} = useOverlap();
+  const {stackId, queue, maxReached, setStackId, playSound} = useOverlap();
 
   return (
     <section className={clx('main-section', styles.Overlap)}>
@@ -22,10 +22,10 @@ export function Overlap() {
         overlap.
       </Text>
 
-      <SoundSelect
-        value={soundId}
+      <StackSelect
+        value={stackId}
         disabled={queue.length > 0}
-        onChange={setSoundId}
+        onChange={setStackId}
       />
 
       <Button
@@ -33,7 +33,7 @@ export function Overlap() {
         aria-label="Play sound"
         variant="primary"
         size={buttonSize}
-        disabled={!soundId}
+        disabled={!stackId}
         onClick={playSound}
       />
 
