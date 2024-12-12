@@ -19,6 +19,7 @@ import { Route as rootRoute } from './routes/__root'
 const VisibilityLazyImport = createFileRoute('/visibility')()
 const SequenceLazyImport = createFileRoute('/sequence')()
 const RestrictedLazyImport = createFileRoute('/restricted')()
+const ReplacedLazyImport = createFileRoute('/replaced')()
 const QueuedLazyImport = createFileRoute('/queued')()
 const OverlapLazyImport = createFileRoute('/overlap')()
 const CascadeLazyImport = createFileRoute('/cascade')()
@@ -45,6 +46,12 @@ const RestrictedLazyRoute = RestrictedLazyImport.update({
   path: '/restricted',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/restricted.lazy').then((d) => d.Route))
+
+const ReplacedLazyRoute = ReplacedLazyImport.update({
+  id: '/replaced',
+  path: '/replaced',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/replaced.lazy').then((d) => d.Route))
 
 const QueuedLazyRoute = QueuedLazyImport.update({
   id: '/queued',
@@ -128,6 +135,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QueuedLazyImport
       parentRoute: typeof rootRoute
     }
+    '/replaced': {
+      id: '/replaced'
+      path: '/replaced'
+      fullPath: '/replaced'
+      preLoaderRoute: typeof ReplacedLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/restricted': {
       id: '/restricted'
       path: '/restricted'
@@ -161,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/cascade': typeof CascadeLazyRoute
   '/overlap': typeof OverlapLazyRoute
   '/queued': typeof QueuedLazyRoute
+  '/replaced': typeof ReplacedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
   '/sequence': typeof SequenceLazyRoute
   '/visibility': typeof VisibilityLazyRoute
@@ -173,6 +188,7 @@ export interface FileRoutesByTo {
   '/cascade': typeof CascadeLazyRoute
   '/overlap': typeof OverlapLazyRoute
   '/queued': typeof QueuedLazyRoute
+  '/replaced': typeof ReplacedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
   '/sequence': typeof SequenceLazyRoute
   '/visibility': typeof VisibilityLazyRoute
@@ -186,6 +202,7 @@ export interface FileRoutesById {
   '/cascade': typeof CascadeLazyRoute
   '/overlap': typeof OverlapLazyRoute
   '/queued': typeof QueuedLazyRoute
+  '/replaced': typeof ReplacedLazyRoute
   '/restricted': typeof RestrictedLazyRoute
   '/sequence': typeof SequenceLazyRoute
   '/visibility': typeof VisibilityLazyRoute
@@ -200,6 +217,7 @@ export interface FileRouteTypes {
     | '/cascade'
     | '/overlap'
     | '/queued'
+    | '/replaced'
     | '/restricted'
     | '/sequence'
     | '/visibility'
@@ -211,6 +229,7 @@ export interface FileRouteTypes {
     | '/cascade'
     | '/overlap'
     | '/queued'
+    | '/replaced'
     | '/restricted'
     | '/sequence'
     | '/visibility'
@@ -222,6 +241,7 @@ export interface FileRouteTypes {
     | '/cascade'
     | '/overlap'
     | '/queued'
+    | '/replaced'
     | '/restricted'
     | '/sequence'
     | '/visibility'
@@ -235,6 +255,7 @@ export interface RootRouteChildren {
   CascadeLazyRoute: typeof CascadeLazyRoute
   OverlapLazyRoute: typeof OverlapLazyRoute
   QueuedLazyRoute: typeof QueuedLazyRoute
+  ReplacedLazyRoute: typeof ReplacedLazyRoute
   RestrictedLazyRoute: typeof RestrictedLazyRoute
   SequenceLazyRoute: typeof SequenceLazyRoute
   VisibilityLazyRoute: typeof VisibilityLazyRoute
@@ -247,6 +268,7 @@ const rootRouteChildren: RootRouteChildren = {
   CascadeLazyRoute: CascadeLazyRoute,
   OverlapLazyRoute: OverlapLazyRoute,
   QueuedLazyRoute: QueuedLazyRoute,
+  ReplacedLazyRoute: ReplacedLazyRoute,
   RestrictedLazyRoute: RestrictedLazyRoute,
   SequenceLazyRoute: SequenceLazyRoute,
   VisibilityLazyRoute: VisibilityLazyRoute,
@@ -268,6 +290,7 @@ export const routeTree = rootRoute
         "/cascade",
         "/overlap",
         "/queued",
+        "/replaced",
         "/restricted",
         "/sequence",
         "/visibility"
@@ -290,6 +313,9 @@ export const routeTree = rootRoute
     },
     "/queued": {
       "filePath": "queued.lazy.tsx"
+    },
+    "/replaced": {
+      "filePath": "replaced.lazy.tsx"
     },
     "/restricted": {
       "filePath": "restricted.lazy.tsx"

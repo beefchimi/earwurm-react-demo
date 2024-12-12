@@ -18,6 +18,10 @@ export const sitemap = [
     title: 'Restricted',
   },
   {
+    route: '/replaced',
+    title: 'Replaced',
+  },
+  {
     route: '/queued',
     title: 'Queued',
   },
